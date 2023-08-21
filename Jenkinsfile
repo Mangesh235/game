@@ -9,7 +9,7 @@ pipeline{
         }
         stage( 'SonarAnalysis'){
 	          steps{
-                 sh '''/opt/sonar-scanner/bin/sonar-scanner Dsonar.projectKey=php -Dsonar sources-code_to_scan
+                 sh '''/opt/sonar-scanner/bin/sonar-scanner Dsonar.projectKey=json -Dsonar sources-code_to_scan
                 
                 	Dsonar.host.url=http://192.168.0.123:9000 -Dsonar login-squ_b88a7db3e0b5ae2cb28a31d85b81204fa62f9611
                 
