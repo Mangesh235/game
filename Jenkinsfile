@@ -7,6 +7,7 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/Mangesh235/game.git'
             }
         }
+       stage('SonarQube Scan') {	    
         sonarQubeScanner {
           toolVersion = "Version 9.6.1"
           properties {
@@ -14,8 +15,9 @@ pipeline{
             property "sonar.sources", "src/main/java"
   }
 }	    
-        stage( 'SonarAnalysis'){
-	          steps{
+       } 
+	stage( 'SonarAnalysis'){
+	   steps{
                   sh """
             ${scannerHome}/bin/sonar-scanner \\
             -Dsonar.projectKey=php \\
