@@ -8,7 +8,7 @@ pipeline{
             }
         }
         sonarQubeScanner {
-          toolVersion = "4.7.0.2474"
+          toolVersion = "Version 9.6.1"
           properties {
             property "sonar.projectKey", "my-project"
             property "sonar.sources", "src/main/java"
