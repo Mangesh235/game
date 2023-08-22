@@ -2,12 +2,7 @@ pipeline{
     agent any
    
     stages{
-        stage('SCM Checkout'){
-            steps{
-                git branch: 'main', url: 'https://github.com/Mangesh235/game.git'
-            }
-        }
-       stage('SonarQube Scan') {	    
+	 stage('SonarQube Scan') {	    
         sonarQubeScanner {
           toolVersion = "Version 9.6.1"
           properties {
@@ -15,7 +10,13 @@ pipeline{
             property "sonar.sources", "src/main/java"
   }
 }	    
-       } 
+}     
+        stage('SCM Checkout'){
+            steps{
+                git branch: 'main', url: 'https://github.com/Mangesh235/game.git'
+            }
+        }
+      
 	stage( 'SonarAnalysis'){
 	   steps{
                   sh """
