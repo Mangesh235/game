@@ -3,7 +3,7 @@ pipeline{
    
     stages{
 	 stage('SonarQube Scan') {	    
-        sonarQubeScanner {
+              steps{
           toolVersion = "Version 9.6.1"
           properties {
             property "sonar.projectKey", "my-project"
