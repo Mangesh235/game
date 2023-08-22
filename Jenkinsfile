@@ -7,13 +7,20 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/Mangesh235/game.git'
             }
         }
+        sonarQubeScanner {
+          toolVersion = "4.7.0.2474"
+          properties {
+            property "sonar.projectKey", "my-project"
+            property "sonar.sources", "src/main/java"
+  }
+}	    
         stage( 'SonarAnalysis'){
 	          steps{
                   sh """
             ${scannerHome}/bin/sonar-scanner \\
             -Dsonar.projectKey=php \\
             -Dsonar.sources=code_to_scan \\
-            -Dsonar.host.url=http://192.168.0.123:9000 \\
+            -Dsonar.host.url=http://localhost:9000 \\
             -Dsonar.login=squ_b88a7db3e0b5ae2cb28a31d85b81204fa62f9611
             -Dsonar.analysis.mode=issues \\
             -Dsonar.externalIssuesReportPaths=report.json
