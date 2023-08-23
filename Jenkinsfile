@@ -2,8 +2,9 @@ pipeline{
     agent any
    
     stages{
-	 steps('SonarQube Scan') {	    
-              
+	 stage('SonarQube Scan') {
+	     steps{
+	 }              
 }	    
 }     
         stage('SCM Checkout'){
