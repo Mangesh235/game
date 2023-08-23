@@ -2,13 +2,8 @@ pipeline{
     agent any
    
     stages{
-	 stage('SonarQube Scan') {	    
-              steps{
-          toolVersion = "Version 9.6.1"
-          properties {
-            property "sonar.squ_b88a7db3e0b5ae2cb28a31d85b81204fa62f9611", "my-project"
-            property "sonar.sources", "src/main/java"
-  }
+	 steps('SonarQube Scan') {	    
+              
 }	    
 }     
         stage('SCM Checkout'){
