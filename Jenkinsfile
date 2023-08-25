@@ -9,7 +9,12 @@ pipeline{
         }
         stage( 'SonarAnalysis'){
         steps {
-             sonar-scanner -X -Dsonar.projectKey=pass -Dsonar.sources=. -Dsonar.host.url=http://192.168.0.123:9000 -D sonar.login=admin -D sonar.password=pass
+             sh ''' sonar-scanner -X -Dsonar.projectKey=pass 
+             -Dsonar.sources=. 
+             -Dsonar.host.url=http://192.168.0.123:9000 
+             -Dsonar.login=admin 
+             -Dsonar.password=pass
+             '''
              }
        }
         stage('docker image build'){ 
